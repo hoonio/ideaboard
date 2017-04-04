@@ -12,8 +12,7 @@ const services = {
       id: mockDB.length,
       created_date: Date.now()
     });
-    console.log(mockDB);
-    return mockDB[mockDB.length];
+    return mockDB[mockDB.length-1];
   },
   update: function(idea) {
     mockDB.find(item => item.id === idea.id).map(updateItem => {

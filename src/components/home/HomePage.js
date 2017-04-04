@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import {Link} from 'react-router';
 
-import { getIdeas } from '../../actions';
+import { getIdeas, createIdea } from '../../actions';
 
 class HomePage extends React.Component {
 
@@ -10,9 +10,9 @@ class HomePage extends React.Component {
     this.props.getIdeas();
   }
 
-  createIdea() {
+  createIdea = () => {
     console.log('create an idea');
-    // services.create();
+    this.props.createIdea();
   }
 
   render() {
@@ -29,7 +29,8 @@ class HomePage extends React.Component {
 
 HomePage.propTypes = {
   ideas: React.PropTypes.array.isRequired,
-  getIdeas: React.PropTypes.func.isRequired
+  getIdeas: React.PropTypes.func.isRequired,
+  createIdea: React.PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => {
@@ -40,7 +41,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getIdeas: () => {
        dispatch(getIdeas());
-    }
+    },
+    createIdea: () => { dispatch(createIdea()); }
   };
 };
 
