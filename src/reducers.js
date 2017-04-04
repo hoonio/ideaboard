@@ -1,10 +1,10 @@
-import { CHANGING_PAGE } from './actions';
+import { LIST_IDEAS } from './actions';
 
-export default (state = { ready: false, page: 'home', data:[] }, action) => {
+export default (state = { list:[] }, action) => {
   switch (action.type) {
-    case CHANGING_PAGE:
+    case LIST_IDEAS:
       return Object.assign({}, state, {
-        page: action.status
+        list: action.ideas
       });
     default:
       return state;

@@ -1,17 +1,11 @@
 import { dispatch } from 'react-redux';
+import services from './components/common/services';
 
-export const CHANGING_PAGE = 'CHANGING_PAGE';
+export const LIST_IDEAS = 'LIST_IDEAS';
 
-const reduceState = (newState) => ({
-  status: newState,
-  type: CHANGING_PAGE
+const listIdeas = (ideas) => ({
+  type: LIST_IDEAS,
+  ideas
 });
 
-export const changeState = (newState) => {
-  return (dispatch, getState) => {
-    if (getState().appstate.ready) {
-      return;
-    }
-    return dispatch(reduceState(newState));
-  };
-};
+export const getIdeas = () => (dispatch) => dispatch(listIdeas(services.list()));

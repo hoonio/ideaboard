@@ -7,11 +7,11 @@ import { routerReducer, routerMiddleware, syncHistoryWithStore } from 'react-rou
 import thunkMiddleware from 'redux-thunk';
 
 import routes from './routes';
-import appstate from './reducers';
+import ideas from './reducers';
 
 const store = createStore(
   combineReducers({
-    appstate,
+    ideas,
     routing: routerReducer
   }),
   compose(
