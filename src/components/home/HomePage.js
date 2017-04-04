@@ -10,15 +10,10 @@ class HomePage extends React.Component {
     this.props.changeState('homepage');
   }
 
-  pushButton() {
-    this.props.changeState('aboutpage');
-  }
-
   render() {
     return (
       <div>
         <h1>React-Redux Boilerplate</h1>
-        <Link to="about" className="btn btn-primary btn-lg" onClick={this.pushButton.bind(this)}>Test redux state change</Link>
       </div>
     );
   }
