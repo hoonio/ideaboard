@@ -3,7 +3,7 @@ let mockDB = [{id: 0, created_date: Date.now()}];
 const services = {
   list: function() {
     if (localStorage.ideas) {
-      mockDB = localStorage.ideas;
+//      mockDB = localStorage.ideas;
     }
     return mockDB;
   },
@@ -24,10 +24,10 @@ const services = {
     this.sync();
     return idea;
   },
-  delete: function(idea) {
-    mockDB = mockDB.map(item => item.id != idea.id);
+  delete: function(ideaId) {
+    mockDB = mockDB.map(item => item.id != ideaId);
     this.sync();
-    return {id: idea.id};
+    return {id: ideaId};
   },
   sync: function() {
     localStorage.setItem('ideas', mockDB);
