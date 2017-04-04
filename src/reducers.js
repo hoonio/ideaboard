@@ -1,6 +1,7 @@
 import { LIST_IDEAS, ADD_IDEA } from './actions';
 
 export default (state = [], action) => {
+  console.log(action)
   switch (action.type) {
     case LIST_IDEAS:
       return action.ideas;

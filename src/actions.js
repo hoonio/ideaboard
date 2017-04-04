@@ -1,5 +1,5 @@
 import { dispatch } from 'react-redux';
-import services from './components/common/services';
+import services from './services';
 
 export const LIST_IDEAS = 'LIST_IDEAS';
 export const ADD_IDEA = 'ADD_IDEA';

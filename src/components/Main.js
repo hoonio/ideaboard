@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import {Link} from 'react-router';
 
-import { getIdeas, createIdea } from '../../actions';
+import { getIdeas, createIdea } from '../actions';
 
 class HomePage extends React.Component {
 
@@ -13,7 +13,12 @@ class HomePage extends React.Component {
   createIdea = () => this.props.createIdea();
 
   render() {
-    const ideaList = this.props.ideas.map((idea) => <div key={idea.id}>{idea.id}</div>);
+    console.log(this.props.ideas);
+    const ideaList = this.props.ideas.map((idea) => {
+      return <div key={idea.id}>
+        {idea.id}
+      </div>
+    });
     return (
       <div>
         <h1>React-Redux Boilerplate</h1>
