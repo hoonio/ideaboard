@@ -10,10 +10,7 @@ class HomePage extends React.Component {
     this.props.getIdeas();
   }
 
-  createIdea = () => {
-    console.log('create an idea');
-    this.props.createIdea();
-  }
+  createIdea = () => this.props.createIdea();
 
   render() {
     const ideaList = this.props.ideas.map((idea) => <div key={idea.id}>{idea.id}</div>);
@@ -34,7 +31,7 @@ HomePage.propTypes = {
 };
 
 const mapStateToProps = (state) => {
-  return { ideas: state.ideas.list };
+  return { ideas: state.ideas };
 };
 
 const mapDispatchToProps = (dispatch) => {
