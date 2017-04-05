@@ -29,7 +29,7 @@ export default class Fields extends React.Component {
       ...this.props.idea,
       title: (this.state.titleEdit ? this.state.title : this.props.idea.title),
       body: (this.state.bodyEdit ? this.state.body : this.props.idea.body)
-    })
+    });
     this.setState({ titleEdit: false, bodyEdit: false });
   }
 

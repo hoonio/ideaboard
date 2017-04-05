@@ -32,6 +32,6 @@ const services = {
   sync: function() {
     localStorage.setItem('ideas', JSON.stringify(mockDB));
   }
-}
+};
 
 export default services;

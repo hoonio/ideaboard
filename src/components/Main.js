@@ -25,7 +25,7 @@ class HomePage extends React.Component {
 
   render() {
     const ideaList = this.props.ideas.map((idea, index) => {
-      return <Idea idea={idea} key={index} del={() => this.deleteIdea(idea.id)} edit={(newIdea) => this.updateIdea(newIdea)} />
+      return <Idea idea={idea} key={index} del={() => this.deleteIdea(idea.id)} edit={(newIdea) => this.updateIdea(newIdea)} />;
     });
     return (
       <div className="container-fluid">
