@@ -26,9 +26,9 @@ class HomePage extends React.Component {
     });
     return (
       <div>
-        <h1>React-Redux Boilerplate</h1>
-        <div>{ideaList}</div>
+        <h1>Idea Board</h1>
         <button onClick={this.createIdea}>Create</button>
+        <div>{ideaList}</div>
       </div>
     );
   }

@@ -1,7 +1,7 @@
 {
-  "name": "react",
+  "name": "ideaboard",
   "version": "1.0.0",
-  "description": "React+Redux boilerplate",
+  "description": "BCG Digital Ventures Interview Challenge: Idea Board",
   "scripts": {
     "prestart": "babel-node tools/startMessage.js",
     "start": "npm-run-all --parallel test:watch open:src lint:watch",
@@ -77,6 +77,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/hoonio/react"
+    "url": "https://github.com/hoonio/ideaboard"
   }
 }
