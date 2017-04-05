@@ -11,13 +11,17 @@ class HomePage extends React.Component {
     this.props.getIdeas();
   }
 
-  createIdea = () => this.props.createIdea();
+  createIdea = () => {
+    this.props.createIdea();
+    return this.props.getIdeas();
+  };
 
-  deleteIdea = (id) => this.props.deleteIdea(id);
+  deleteIdea = (id) => {
+    this.props.deleteIdea(id);
+    return this.props.getIdeas();
+  };
 
-  updateIdea = (idea) => {
-    console.log(idea)
-    return this.props.updateIdea(idea)};
+  updateIdea = (idea) => this.props.updateIdea(idea);
 
   render() {
     console.log(this.props.ideas);
