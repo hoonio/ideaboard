@@ -9,7 +9,7 @@ const services = {
   },
   create: function() {
     mockDB.push({
-      id: mockDB.length,
+      id: mockDB[mockDB.length-1].id+1,
       created_date: Date.now()
     });
     this.sync();
@@ -21,7 +21,6 @@ const services = {
       newIdea,
       ...mockDB.filter(idea => idea.id > newIdea.id)
     ];
-    console.log(mockDB)
     this.sync();
     return newIdea;
   },
