@@ -12,3 +12,11 @@ a.active {
 .idea-card h2 {
   margin: 0;
 }
+
+.idea-card .btn {
+  display: none;
+}
+
+.idea-card:hover .btn {
+  display: block;
+}
