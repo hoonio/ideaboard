@@ -49,12 +49,12 @@ export default class Fields extends React.Component {
     return (
       <div>
         {this.state.titleEdit ?
-          <input type="text" placeholder={this.state.title} onChange={this.onChangeTitle} onBlur={this.submitOnBlur} />
+          <input type="text" className="form-control" placeholder={this.state.title} onChange={this.onChangeTitle} onBlur={this.submitOnBlur} />
         :
           <h2 onClick={this.toggleTitleField}>{this.state.title}</h2>
         }
         {this.state.bodyEdit ?
-          <input type="text" placeholder={this.state.body} name="body" onChange={this.onChangeBody} onBlur={this.submitOnBlur} />
+          <input type="text" className="form-control" placeholder={this.state.body} name="body" onChange={this.onChangeBody} onBlur={this.submitOnBlur} />
         :
           <p onClick={this.toggleBodyField}>{this.state.body}</p>
         }
