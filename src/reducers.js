@@ -12,8 +12,9 @@ export default (state = [], action) => {
       return state.filter(idea => idea.id != action.newIdea.id);
     case EDIT_IDEA:
       return [
-        ...state.filter(idea => idea.id != action.newIdea.id),
-        action.newIdea
+        ...state.filter(idea => idea.id < action.newIdea.id),
+        action.newIdea,
+        ...state.filter(idea => idea.id > action.newIdea.id)
       ];
     default:
       return state;
