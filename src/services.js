@@ -3,7 +3,7 @@ let mockDB = [{id: 0, created_date: Date.now()}];
 const services = {
   list: function() {
     if (localStorage.ideas) {
-//      mockDB = localStorage.ideas;
+      mockDB = JSON.parse(localStorage.getItem("ideas"));
     }
     return mockDB;
   },
@@ -12,25 +12,26 @@ const services = {
       id: mockDB.length,
       created_date: Date.now()
     });
+    this.sync();
     return mockDB[mockDB.length-1];
   },
-  update: function(idea) {
-/*    mockDB = [
-      ...mockDB.filter(item => item.id != idea.id),
-      idea
+  update: function(newIdea) {
+    mockDB = [
+      ...mockDB.filter(idea => idea.id < newIdea.id),
+      newIdea,
+      ...mockDB.filter(idea => idea.id > newIdea.id)
     ];
     console.log(mockDB)
     this.sync();
-*/
-    return idea;
+    return newIdea;
   },
   delete: function(ideaId) {
-    mockDB = mockDB.map(item => item.id != ideaId);
+    mockDB = mockDB.filter(item => item.id != ideaId);
     this.sync();
     return {id: ideaId};
   },
   sync: function() {
-    localStorage.setItem('ideas', mockDB);
+    localStorage.setItem('ideas', JSON.stringify(mockDB));
   }
 }
 
