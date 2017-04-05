@@ -15,12 +15,13 @@ const services = {
     return mockDB[mockDB.length-1];
   },
   update: function(idea) {
-    mockDB = [
+/*    mockDB = [
       ...mockDB.filter(item => item.id != idea.id),
       idea
     ];
     console.log(mockDB)
     this.sync();
+*/
     return idea;
   },
   delete: function(ideaId) {
