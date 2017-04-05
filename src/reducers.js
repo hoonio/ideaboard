@@ -1,4 +1,4 @@
-import { LIST_IDEAS, ADD_IDEA, REMOVE_IDEA } from './actions';
+import { LIST_IDEAS, ADD_IDEA, REMOVE_IDEA, EDIT_IDEA } from './actions';
 
 export default (state = [], action) => {
   console.log(action)
@@ -10,6 +10,11 @@ export default (state = [], action) => {
       return [ ...state, action.newIdea ];
     case REMOVE_IDEA:
       return state.filter(idea => idea.id != action.newIdea.id);
+    case EDIT_IDEA:
+      return [
+        ...state.filter(idea => idea.id != action.newIdea.id),
+        action.newIdea
+      ];
     default:
       return state;
   }
