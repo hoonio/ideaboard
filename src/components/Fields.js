@@ -16,27 +16,15 @@ export default class Fields extends React.Component {
     });
   }
 
-  toggleTitleField = () => {
-    console.log('toggle title')
-    this.setState({ titleEdit: !this.state.titleEdit });
-  }
+  toggleTitleField = () => this.setState({ titleEdit: !this.state.titleEdit });
 
-  toggleBodyField = () => {
-    console.log('toggle body')
-    this.setState({ bodyEdit: !this.state.bodyEdit });
-  }
+  toggleBodyField = () => this.setState({ bodyEdit: !this.state.bodyEdit });
 
-  onChangeTitle = (event) => {
-    this.setState({ title: event.currentTarget.value });
-    console.log(this.state);
-  }
+  onChangeTitle = (event) => this.setState({ title: event.currentTarget.value });
 
-  onChangeBody = (event) => {
-    this.setState({ body: event.currentTarget.value });
-  }
+  onChangeBody = (event) => this.setState({ body: event.currentTarget.value });
 
   submitOnBlur = () => {
-    console.log('Sending ' + this.state.title + this.state.body);
     this.props.edit({
       ...this.props.idea,
       title: (this.state.titleEdit ? this.state.title : this.props.idea.title),

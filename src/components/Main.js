@@ -24,7 +24,6 @@ class HomePage extends React.Component {
   updateIdea = (idea) => this.props.updateIdea(idea);
 
   render() {
-    console.log(this.props.ideas);
     const ideaList = this.props.ideas.map((idea, index) => {
       return <Idea idea={idea} key={index} del={() => this.deleteIdea(idea.id)} edit={(newIdea) => this.updateIdea(newIdea)} />
     });
