@@ -7,7 +7,9 @@ export default class Fields extends React.Component {
     super(props);
     this.setState({
       titleEdit: false,
-      bodyEdit: false
+      bodyEdit: false,
+      titleDirty: false,
+      bodyDirty: false
     })
   }
 
@@ -25,26 +27,26 @@ export default class Fields extends React.Component {
 
   toggleBodyField = () => {
     console.log('toggle body')
-    this.setState({ titleEdit: !this.state.bodyEdit });
+    this.setState({ bodyEdit: !this.state.bodyEdit });
   }
 
   onChangeTitle = (event) => {
-    this.setState({ title: event.currentTarget.value });
+    this.setState({ title: event.currentTarget.value, titleDirty: true });
     console.log(this.state);
   }
 
   onChangeBody = (event) => {
-    this.setState({ body: event.currentTarget.value });
+    this.setState({ body: event.currentTarget.value, bodyDirty: true });
   }
 
   submitOnBlur = () => {
     console.log('Sending ' + this.state.title + this.state.body);
     this.props.edit({
       ...this.props.idea,
-      title: this.state.title,
-      body: this.state.body
+      title: (this.state.titleDirty ? this.state.title : this.props.idea.title),
+      body: (this.state.bodyDirty ? this.state.body : this.props.idea.body)
     })
-    this.setState({ titleEdit: false, bodyEdit: false });
+    this.setState({ titleEdit: false, bodyEdit: false, titleDirty: false, bodyDirty: false });
   }
 
   render() {
