@@ -6,15 +6,13 @@ export default class Fields extends React.Component {
   constructor(props) {
     super(props);
     this.setState({
-      titleEdit: false,
-      bodyEdit: false,
-      titleDirty: false,
-      bodyDirty: false
     })
   }
 
   componentDidMount() {
     this.setState({
+      titleEdit: false,
+      bodyEdit: false,
       title: this.props.idea.title ? this.props.idea.title : 'Add title',
       body: this.props.idea.body ? this.props.idea.body : 'Add description'
     });
@@ -31,22 +29,22 @@ export default class Fields extends React.Component {
   }
 
   onChangeTitle = (event) => {
-    this.setState({ title: event.currentTarget.value, titleDirty: true });
+    this.setState({ title: event.currentTarget.value });
     console.log(this.state);
   }
 
   onChangeBody = (event) => {
-    this.setState({ body: event.currentTarget.value, bodyDirty: true });
+    this.setState({ body: event.currentTarget.value });
   }
 
   submitOnBlur = () => {
     console.log('Sending ' + this.state.title + this.state.body);
     this.props.edit({
       ...this.props.idea,
-      title: (this.state.titleDirty ? this.state.title : this.props.idea.title),
-      body: (this.state.bodyDirty ? this.state.body : this.props.idea.body)
+      title: (this.state.titleEdit ? this.state.title : this.props.idea.title),
+      body: (this.state.bodyEdit ? this.state.body : this.props.idea.body)
     })
-    this.setState({ titleEdit: false, bodyEdit: false, titleDirty: false, bodyDirty: false });
+    this.setState({ titleEdit: false, bodyEdit: false });
   }
 
   render() {
