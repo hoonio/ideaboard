@@ -9,12 +9,14 @@ import thunkMiddleware from 'redux-thunk';
 import routes from './routes';
 import ideas from './reducers';
 
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
 const store = createStore(
   combineReducers({
     ideas,
     routing: routerReducer
   }),
-  compose(
+  composeEnhancers(
     applyMiddleware(
       thunkMiddleware, // enables dispatch() calls
       routerMiddleware(history) // logs actions
