@@ -11,7 +11,7 @@ export default class Fields extends React.Component {
     this.setState({
       titleEdit: false,
       bodyEdit: false,
-      title: this.props.idea.title ? this.props.idea.title : 'Add title',
+      title: this.props.idea.title ? this.props.idea.title : 'Card #'+(this.props.idea.id+1),
       body: this.props.idea.body ? this.props.idea.body : 'Add description'
     });
   }
@@ -37,12 +37,17 @@ export default class Fields extends React.Component {
     return (
       <div>
         {this.state.titleEdit ?
-          <input type="text" className="form-control" placeholder={this.state.title} onChange={this.onChangeTitle} onBlur={this.submitOnBlur} />
+          <input type="text" className="form-control" value={this.state.title} onChange={this.onChangeTitle} onBlur={this.submitOnBlur} />
         :
-          <h2 onClick={this.toggleTitleField}>{this.state.title}</h2>
+          <h3 onClick={this.toggleTitleField}>{this.state.title}</h3>
         }
         {this.state.bodyEdit ?
-          <input type="text" className="form-control" placeholder={this.state.body} name="body" onChange={this.onChangeBody} onBlur={this.submitOnBlur} />
+          <div>
+            <input type="text" className="form-control" placeholder={this.state.body} name="body" onChange={this.onChangeBody} onBlur={this.submitOnBlur} />
+            {this.state.body.length<15 ?
+              <p className="body-counter">{this.state.body.length}</p>
+            : null}
+          </div>
         :
           <p onClick={this.toggleBodyField}>{this.state.body}</p>
         }

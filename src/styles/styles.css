@@ -9,7 +9,7 @@ a.active {
   margin: 10px;
 }
 
-.idea-card h2 {
+.idea-card h3 {
   margin: 0;
 }
 
@@ -19,4 +19,8 @@ a.active {
 
 .idea-card:hover .btn {
   display: block;
+}
+
+.body-counter {
+  color: red;
 }
