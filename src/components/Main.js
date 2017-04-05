@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {Link} from 'react-router';
+import toastr from 'toastr';
 
 import { getIdeas, createIdea, deleteIdea, updateIdea } from '../actions';
 import Idea from './Idea';
@@ -21,7 +22,10 @@ class HomePage extends React.Component {
     return this.props.getIdeas();
   };
 
-  updateIdea = (idea) => this.props.updateIdea(idea);
+  updateIdea = (idea) => {
+    this.props.updateIdea(idea);
+    return toastr.success('Edits have been successfully saved');
+  };
 
   render() {
     const ideaList = this.props.ideas.map((idea, index) => {
