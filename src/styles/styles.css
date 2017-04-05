@@ -1,3 +1,14 @@
 a.active {
   color: orange;
 }
+
+.idea-card {
+  width: 150px;
+  height: 150px;
+  float: left;
+  margin: 10px;
+}
+
+.idea-card h2 {
+  margin: 0;
+}

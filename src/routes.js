@@ -3,8 +3,8 @@ import { Route, IndexRoute } from 'react-router';
 
 import App from './components/App';
 import Main from './components/Main';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/styles.css';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 export default (
   <Route path="/" component={App}>

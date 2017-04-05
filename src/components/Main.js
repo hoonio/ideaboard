@@ -25,10 +25,15 @@ class HomePage extends React.Component {
       return <Idea idea={idea} key={index} del={() => this.deleteIdea(idea.id)} edit={(newIdea) => this.updateIdea(newIdea)} />
     });
     return (
-      <div>
-        <h1>Idea Board</h1>
-        <button onClick={this.createIdea}>Create</button>
-        <div>{ideaList}</div>
+      <div className="container-fluid">
+        <div className="row">
+          <div className="pull-right">
+            <button type="button" className="btn btn-default btn-lg" onClick={this.createIdea}>
+              <span className="glyphicon glyphicon-plus" aria-hidden="true"></span>
+            </button>
+          </div>
+        </div>
+        <div className="row">{ideaList}</div>
       </div>
     );
   }

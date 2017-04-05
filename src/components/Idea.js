@@ -11,11 +11,14 @@ export default class Idea extends React.Component {
   render() {
     const { idea, del, edit } = this.props;
     return (
-      <div>
-        <h2>{idea.id}</h2>
-        <p>{idea.created_date}</p>
-        <Fields idea={idea} edit={edit} />
-        <button onClick={del} >Delete</button>
+      <div className="panel panel-primary idea-card">
+        <button type="button" className="btn btn-default btn-sm pull-right" onClick={del}>
+          <span className="glyphicon glyphicon-remove" aria-hidden="true"></span>
+        </button>
+        <div className="panel-body">
+          <Fields idea={idea} edit={edit} />
+          <p>{idea.id} {idea.created_date}</p>
+        </div>
       </div>
     );
   }
