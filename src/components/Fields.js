@@ -5,11 +5,9 @@ export default class Fields extends React.Component {
 
   constructor(props) {
     super(props);
-    this.setState({
-    })
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.setState({
       titleEdit: false,
       bodyEdit: false,
