@@ -15,12 +15,11 @@ const services = {
     return mockDB[mockDB.length-1];
   },
   update: function(idea) {
-    mockDB.find(item => item.id === idea.id).map(updateItem => {
-      updateItem.id,
-      updateItem.created_date,
-      idea.title,
-      idea.body
-    });
+    mockDB = [
+      ...mockDB.filter(item => item.id != idea.id),
+      idea
+    ];
+    console.log(mockDB)
     this.sync();
     return idea;
   },

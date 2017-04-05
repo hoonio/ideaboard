@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import {Link} from 'react-router';
 
-import { getIdeas, createIdea, deleteIdea } from '../actions';
+import { getIdeas, createIdea, deleteIdea, updateIdea } from '../actions';
 import Idea from './Idea';
 
 class HomePage extends React.Component {
@@ -15,10 +15,14 @@ class HomePage extends React.Component {
 
   deleteIdea = (id) => this.props.deleteIdea(id);
 
+  updateIdea = (idea) => {
+    console.log(idea)
+    return this.props.updateIdea(idea)};
+
   render() {
     console.log(this.props.ideas);
     const ideaList = this.props.ideas.map((idea, index) => {
-      return <Idea idea={idea} key={index} del={() => this.deleteIdea(idea.id)} />
+      return <Idea idea={idea} key={index} del={() => this.deleteIdea(idea.id)} edit={(newIdea) => this.updateIdea(newIdea)} />
     });
     return (
       <div>
@@ -34,7 +38,8 @@ HomePage.propTypes = {
   ideas: React.PropTypes.array.isRequired,
   getIdeas: React.PropTypes.func.isRequired,
   createIdea: React.PropTypes.func.isRequired,
-  deleteIdea: React.PropTypes.func.isRequired
+  deleteIdea: React.PropTypes.func.isRequired,
+  updateIdea: React.PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => {
@@ -45,7 +50,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getIdeas: () => { dispatch(getIdeas()); },
     createIdea: () => { dispatch(createIdea()); },
-    deleteIdea: (id) => { dispatch(deleteIdea(id)); }
+    deleteIdea: (id) => { dispatch(deleteIdea(id)); },
+    updateIdea: (idea) => { dispatch(updateIdea(idea)); }
   };
 };
 

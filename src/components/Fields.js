@@ -1,9 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { updateIdea } from '../actions';
-
-class Fields extends React.Component {
+export default class Fields extends React.Component {
 
   constructor(props) {
     super(props);
@@ -41,7 +39,7 @@ class Fields extends React.Component {
 
   submitOnBlur = () => {
     console.log('Sending ' + this.state.title + this.state.body);
-    this.props.updateIdea({
+    this.props.edit({
       ...this.props.idea,
       title: this.state.title,
       body: this.state.body
@@ -69,13 +67,5 @@ class Fields extends React.Component {
 
 Fields.propTypes = {
   idea: React.PropTypes.object.isRequired,
-  updateIdea: React.PropTypes.func.isRequired
+  edit: React.PropTypes.func.isRequired
 };
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    updateIdea: (idea) => { dispatch(updateIdea(idea)); }
-  };
-};
-
-export default connect(mapDispatchToProps)(Fields);
